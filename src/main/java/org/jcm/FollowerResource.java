@@ -1,7 +1,5 @@
 package org.jcm;
 
-import lombok.Data;
-import org.jboss.resteasy.plugins.providers.ReactiveStreamProvider;
 import org.jcm.dto.FollowerRequest;
 import org.jcm.dto.FollowerResponse;
 import org.jcm.dto.FollowersPerUserResponse;
@@ -12,10 +10,8 @@ import org.jcm.repository.UserRepository;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
 import javax.ws.rs.*;
-import javax.ws.rs.PUT;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.awt.*;
 import java.util.stream.Collectors;
 
 @Path("/users/{userId}/followers")
@@ -54,7 +50,7 @@ public class FollowerResource {
             entity.setUser(user);
             entity.setFollower(follower);
             followerRepository.persist(entity);
-            return Response.status(Response.Status.CREATED).build();
+            //return Response.status(Response.Status.CREATED).build();
         }
         return Response.status(Response.Status.NO_CONTENT).build();
 
